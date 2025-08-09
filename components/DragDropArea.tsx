@@ -1,5 +1,5 @@
-import { colors } from '../constants/styles';
 import { StyleSheet, Text, View } from 'react-native';
+import { colors } from '../constants/styles';
 
 export default function DragDropArea() {
     return (
@@ -20,15 +20,13 @@ const styles = StyleSheet.create({
         borderRadius: 12,
         padding: 20,
         alignItems: 'center',
-        justifyContent: 'center',
         marginVertical: 16,
-        minHeight: 120,
     },
     title: {
         fontSize: 18,
-        fontWeight: 'bold',
+        fontWeight: '600',
         color: colors.primary,
-        marginBottom: 8,
+        marginBottom: 4,
     },
     subtitle: {
         fontSize: 14,

@@ -6,10 +6,6 @@ import { categories } from '../../constants/categories';
 import { colors, spacing } from '../../constants/styles';
 
 export default function BudgetScreen() {
-  // Sample data for the last 7 days (Sun-Sat)
-  const weeklyExpenses = [15, 20, 12, 8, 25, 10, 5];
-  const todayExpenses = 18; // Today's total expenses
-
   return (
     <ScrollView
       style={styles.container}
@@ -30,19 +26,19 @@ export default function BudgetScreen() {
         ))}
       </View>
 
-      <View style={styles.currencyContainer}>
+      <View style={styles.currencyRow}>
         <Text style={styles.currencyText}>Display $USD</Text>
         <Text style={styles.currencyText}>Currency: USD</Text>
       </View>
 
       <Text style={styles.sectionHeader}>Overview</Text>
 
-      <View style={styles.todayExpenses}>
-        <Text style={styles.todayText}>Today's Expenses</Text>
-        <Text style={styles.amountText}>${todayExpenses.toFixed(2)}</Text>
+      <View style={styles.todayContainer}>
+        <Text style={styles.todayLabel}>Today's Expenses</Text>
+        <Text style={styles.todayAmount}>$0.00</Text>
       </View>
 
-      <ExpenseChart data={weeklyExpenses} />
+      <ExpenseChart data={[0, 0, 0, 0, 0, 0, 0]} />
     </ScrollView>
   );
 }
@@ -54,9 +50,9 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: '700',
     color: colors.primary,
-    marginBottom: spacing.sm,
+    marginBottom: 4,
   },
   subheader: {
     fontSize: 16,
@@ -66,14 +62,13 @@ const styles = StyleSheet.create({
   categoryContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'center',
-    marginVertical: spacing.md,
-    gap: 12,
-  },
-  currencyContainer: {
-    flexDirection: 'row',
     justifyContent: 'space-between',
     marginVertical: spacing.md,
+  },
+  currencyRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: spacing.md,
   },
   currencyText: {
     color: colors.textSecondary,
@@ -81,24 +76,23 @@ const styles = StyleSheet.create({
   },
   sectionHeader: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: '600',
     color: colors.primary,
-    marginTop: spacing.md,
     marginBottom: spacing.sm,
   },
-  todayExpenses: {
+  todayContainer: {
     backgroundColor: colors.cardBackground,
     borderRadius: 8,
     padding: spacing.md,
     marginBottom: spacing.lg,
   },
-  todayText: {
+  todayLabel: {
     color: colors.textSecondary,
-    marginBottom: 4,
+    fontSize: 14,
   },
-  amountText: {
+  todayAmount: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: '700',
     color: colors.primary,
   },
 });
