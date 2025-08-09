@@ -34,6 +34,15 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
+      ],
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf",
+            "node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"
+          ]
+        }
       ]
     ],
     "experiments": {
