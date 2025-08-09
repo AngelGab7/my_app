@@ -5,10 +5,10 @@ import { colors } from '../constants/styles';
 export default function CategoryIcon({ icon, name }: { icon: string; name: string }) {
     return (
         <TouchableOpacity style={styles.container}>
-            <View style={styles.iconBackground}>
+            <View style={styles.iconContainer}>
                 <FontAwesome name={icon} size={20} color={colors.primary} />
             </View>
-            <Text style={styles.label}>{name}</Text>
+            <Text style={styles.text}>{name}</Text>
         </TouchableOpacity>
     );
 }
@@ -19,16 +19,16 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginBottom: 16,
     },
-    iconBackground: {
+    iconContainer: {
+        backgroundColor: '#E9F0FF',
         width: 60,
         height: 60,
         borderRadius: 30,
-        backgroundColor: colors.primaryLight,
         justifyContent: 'center',
         alignItems: 'center',
         marginBottom: 8,
     },
-    label: {
+    text: {
         fontSize: 14,
         color: colors.textPrimary,
     },

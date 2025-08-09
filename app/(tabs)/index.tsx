@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: 24,
-    fontWeight: '700',
+    fontWeight: 'bold',
     color: colors.primary,
     marginBottom: 4,
   },
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
   },
   todayAmount: {
     fontSize: 24,
-    fontWeight: '700',
+    fontWeight: 'bold',
     color: colors.primary,
   },
 });
