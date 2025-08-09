@@ -1,21 +1,18 @@
-import { colors } from '@/constants/styles';
 import FontAwesome from '@expo/vector-icons/FontAwesome5';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { colors } from '../constants/styles';
 
-interface CategoryIconProps {
+export default function CategoryIcon({
+    icon,
+    name
+}: {
     icon: string;
-    name: string;
-    onPress?: () => void;
-}
-
-export default function CategoryIcon({ icon, name, onPress }: CategoryIconProps) {
+    name: string
+}) {
     return (
-        <TouchableOpacity
-            style={styles.container}
-            onPress={onPress}
-        >
+        <TouchableOpacity style={styles.container}>
             <View style={styles.iconContainer}>
-                <FontAwesome name={icon} size={20} color={colors.primary} />
+                <FontAwesome name={icon} size={24} color={colors.primary} />
             </View>
             <Text style={styles.text}>{name}</Text>
         </TouchableOpacity>
@@ -24,15 +21,15 @@ export default function CategoryIcon({ icon, name, onPress }: CategoryIconProps)
 
 const styles = StyleSheet.create({
     container: {
-        width: '30%',
         alignItems: 'center',
-        marginBottom: 16,
+        margin: 8,
+        width: 80,
     },
     iconContainer: {
+        backgroundColor: '#E9F0FF',
         width: 60,
         height: 60,
         borderRadius: 30,
-        backgroundColor: '#E9F0FF',
         justifyContent: 'center',
         alignItems: 'center',
         marginBottom: 8,

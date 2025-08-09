@@ -1,16 +1,20 @@
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import CategoryIcon from '@/components/CategoryIcon';
-import DragDropArea from '@/components/DragDropArea';
-import ExpenseChart from '@/components/ExpenseChart';
-import { categories } from '@/constants/categories';
-import { colors } from '@/constants/styles';
+import CategoryIcon from '../../components/CategoryIcon';
+import DragDropArea from '../../components/DragDropArea';
+import ExpenseChart from '../../components/ExpenseChart';
+import { categories } from '../../constants/categories';
+import { colors, spacing } from '../../constants/styles';
 
 export default function BudgetScreen() {
-  const todayExpenses = 0;
-  const lastWeekExpenses = [4, 3, 2, 1, 0];
+  // Sample data for the last 7 days (Sun-Sat)
+  const weeklyExpenses = [15, 20, 12, 8, 25, 10, 5];
+  const todayExpenses = 18; // Today's total expenses
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={{ padding: spacing.md }}
+    >
       <Text style={styles.header}>Visual Budget</Text>
       <Text style={styles.subheader}>Drag, Drop, and Track Your Expenses</Text>
 
@@ -38,7 +42,7 @@ export default function BudgetScreen() {
         <Text style={styles.amountText}>${todayExpenses.toFixed(2)}</Text>
       </View>
 
-      <ExpenseChart data={lastWeekExpenses} />
+      <ExpenseChart data={weeklyExpenses} />
     </ScrollView>
   );
 }
@@ -46,54 +50,54 @@ export default function BudgetScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
     backgroundColor: colors.background,
   },
   header: {
     fontSize: 24,
     fontWeight: 'bold',
     color: colors.primary,
-    marginBottom: 8,
+    marginBottom: spacing.sm,
   },
   subheader: {
     fontSize: 16,
     color: colors.textSecondary,
-    marginBottom: 16,
+    marginBottom: spacing.md,
   },
   categoryContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    marginVertical: 16,
+    justifyContent: 'center',
+    marginVertical: spacing.md,
+    gap: 12,
   },
   currencyContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginVertical: 8,
+    marginVertical: spacing.md,
   },
   currencyText: {
-    fontSize: 14,
     color: colors.textSecondary,
+    fontSize: 14,
   },
   sectionHeader: {
     fontSize: 18,
     fontWeight: 'bold',
-    marginTop: 16,
-    marginBottom: 8,
+    color: colors.primary,
+    marginTop: spacing.md,
+    marginBottom: spacing.sm,
   },
   todayExpenses: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
     backgroundColor: colors.cardBackground,
-    padding: 12,
     borderRadius: 8,
-    marginBottom: 16,
+    padding: spacing.md,
+    marginBottom: spacing.lg,
   },
   todayText: {
-    fontSize: 16,
-    color: colors.textPrimary,
+    color: colors.textSecondary,
+    marginBottom: 4,
   },
   amountText: {
-    fontSize: 16,
+    fontSize: 24,
     fontWeight: 'bold',
     color: colors.primary,
   },

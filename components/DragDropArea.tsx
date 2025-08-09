@@ -1,4 +1,4 @@
-import { colors } from '@/constants/styles';
+import { colors } from '../constants/styles';
 import { StyleSheet, Text, View } from 'react-native';
 
 export default function DragDropArea() {

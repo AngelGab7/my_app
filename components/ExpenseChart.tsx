@@ -1,11 +1,13 @@
-import { colors } from '@/constants/styles';
 import { StyleSheet, Text, View } from 'react-native';
+import { colors, spacing } from '../constants/styles';
 
 interface ExpenseChartProps {
-    data: number[];
+    data: number[]; // Array of 7 numbers representing Sun-Sat
 }
 
 export default function ExpenseChart({ data }: ExpenseChartProps) {
+    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
     return (
         <View style={styles.container}>
             <Text style={styles.header}>Today's Breakdown</Text>
@@ -22,7 +24,7 @@ export default function ExpenseChart({ data }: ExpenseChartProps) {
                 ))}
             </View>
             <View style={styles.daysContainer}>
-                {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => (
+                {days.map((day) => (
                     <Text key={day} style={styles.day}>{day}</Text>
                 ))}
             </View>
@@ -32,21 +34,21 @@ export default function ExpenseChart({ data }: ExpenseChartProps) {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 16,
+        marginTop: spacing.md,
     },
     header: {
         fontSize: 16,
         fontWeight: 'bold',
         color: colors.primary,
-        marginBottom: 8,
+        marginBottom: spacing.sm,
     },
     emptyState: {
         backgroundColor: colors.cardBackground,
         borderRadius: 8,
-        padding: 16,
+        padding: spacing.md,
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: 16,
+        marginBottom: spacing.md,
         minHeight: 100,
     },
     emptyText: {
@@ -55,12 +57,12 @@ const styles = StyleSheet.create({
     divider: {
         height: 1,
         backgroundColor: colors.border,
-        marginVertical: 16,
+        marginVertical: spacing.md,
     },
     weekData: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginBottom: 8,
+        marginBottom: spacing.sm,
     },
     amount: {
         fontSize: 14,
