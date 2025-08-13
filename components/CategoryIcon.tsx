@@ -1,10 +1,19 @@
+// components/CategoryIcon.tsx
 import FontAwesome from '@expo/vector-icons/FontAwesome5';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { colors } from '../constants/styles';
 
-export default function CategoryIcon({ icon, name }: { icon: string; name: string }) {
+export default function CategoryIcon({
+    icon,
+    name,
+    onPress,
+}: {
+    icon: string;
+    name: string;
+    onPress?: () => void;
+}) {
     return (
-        <TouchableOpacity style={styles.container}>
+        <TouchableOpacity style={styles.container} onPress={onPress}>
             <View style={styles.iconContainer}>
                 <FontAwesome name={icon} size={20} color={colors.primary} />
             </View>
